@@ -1,0 +1,4 @@
+Given the following weather data:
+{weather_data}
+
+Answer the user's question: {question}

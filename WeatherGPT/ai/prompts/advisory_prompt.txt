@@ -1,0 +1,5 @@
+Given the forecast:
+{forecast}
+and crop/context: {context}
+
+Give 3-5 practical, safe advisories.
