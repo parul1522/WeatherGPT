@@ -1,11 +1,20 @@
-fastapi>=0.110
-uvicorn[standard]>=0.29
-pydantic>=2.6
-pydantic-settings>=2.2
-sqlalchemy>=2.0
-psycopg2-binary>=2.9
-alembic>=1.13
-redis>=5.0
-httpx>=0.27
-python-dotenv>=1.0
-pytest>=8.0
+# Web framework and server
+fastapi==0.141.1
+uvicorn==0.46.0
+
+# Settings and validation
+pydantic==2.13.3
+pydantic-settings==2.14.0
+python-dotenv==1.2.2
+
+# Database (PostgreSQL, async)
+sqlalchemy[asyncio]==2.1.1
+asyncpg==0.31.0
+
+# Outbound HTTP (Open-Meteo, Gemini/OpenAI REST APIs)
+httpx==0.28.1
+
+# Testing (aiosqlite gives tests a throwaway database without needing Postgres)
+pytest==9.1.1
+pytest-asyncio==1.4.0
+aiosqlite==0.22.1
