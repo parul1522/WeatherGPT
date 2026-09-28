@@ -1,8 +1,18 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Query
 
 router = APIRouter()
 
 
 @router.get("")
-def location_root():
-    return {"module": "location", "status": "todo"}
+async def location_root(
+    lat: float = Query(...),
+    lon: float = Query(...),
+):
+    return {
+        "module": "location",
+        "location": {
+            "latitude": lat,
+            "longitude": lon
+        },
+        "message": "Location endpoint is working"
+    }

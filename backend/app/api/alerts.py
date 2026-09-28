@@ -4,5 +4,16 @@ router = APIRouter()
 
 
 @router.get("")
-def alerts_root():
-    return {"module": "alerts", "status": "todo"}
+async def alerts_root(
+    lat: float = 23.2599,
+    lon: float = 77.4126,
+):
+    return {
+        "module": "alerts",
+        "location": {
+            "latitude": lat,
+            "longitude": lon
+        },
+        "alerts": [],
+        "message": "No active alerts"
+    }

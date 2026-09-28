@@ -1,8 +1,18 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Query
 
 router = APIRouter()
 
 
 @router.get("")
-def climate_root():
-    return {"module": "climate", "status": "todo"}
+async def climate_root(
+    lat: float = Query(...),
+    lon: float = Query(...),
+):
+    return {
+        "module": "climate",
+        "location": {
+            "latitude": lat,
+            "longitude": lon
+        },
+        "message": "Climate data endpoint is working"
+    }

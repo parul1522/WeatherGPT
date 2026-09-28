@@ -7,5 +7,22 @@ router = APIRouter()
 
 @router.post("", response_model=ChatResponse)
 async def chat(req: ChatRequest):
-    # TODO: call ai_service
-    return ChatResponse(reply=f"Echo: {req.message}", lang=req.lang)
+
+    message = req.message.lower()
+
+    if "weather" in message:
+        reply = "I can provide weather information for your selected location."
+
+    elif "alert" in message:
+        reply = "I can check weather alerts for your selected location."
+
+    elif "climate" in message:
+        reply = "I can provide climate information for your selected location."
+
+    else:
+        reply = f"You asked: {req.message}"
+
+    return ChatResponse(
+        reply=reply,
+        lang=req.lang
+    )
