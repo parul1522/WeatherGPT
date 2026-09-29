@@ -1,0 +1,23 @@
+# WeatherGPT - single dependency file for the whole project (backend + ai).
+# Install from the project root:  pip install -r requirements.txt
+
+# --- web/API (backend/) ---
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.6
+pydantic-settings>=2.2
+httpx>=0.27            # backend/weather_data Open-Meteo provider + FastAPI TestClient
+
+# --- AI pipeline (ai/) ---
+groq>=0.13             # LLM query understanding + response generation (needs GROQ_API_KEY)
+requests>=2.31         # Open-Meteo forecast/current/archive tools and IMD alert tool
+python-dotenv>=1.0     # loads .env for ai/config.py
+
+# --- storage scaffolding (backend/app/database, docker-compose db/redis) ---
+sqlalchemy>=2.0
+psycopg2-binary>=2.9
+alembic>=1.13
+redis>=5.0
+
+# --- tests ---
+pytest>=8.0
